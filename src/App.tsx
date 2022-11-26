@@ -11,9 +11,9 @@ function App() {
   // const [obj, setObj] = useState<TTodo | null>(null); // when work with object than always easier make checking on NULL
   //   const [some, setSome] = useState<string[] | null>(null); the we always need to make type GUARD!
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
+  // const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setText(e.target.value);
+  // };
 
   const handleAddTodo = () => {
     const newTodo: Todo = {
@@ -36,8 +36,8 @@ function App() {
   return (
     <div className="App">
       <NewTodoForm
-        value={text}
-        onChange={handleInput}
+        // value={text}
+        // onChange={handleInput}
         handleClick={handleAddTodo}
       />
       {todoList &&

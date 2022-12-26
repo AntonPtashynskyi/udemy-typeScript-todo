@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const StyledSwitcher = styled.div`
+  display: flex;
+  justify-content: center;
   button {
     border: none;
     background-color: transparent;

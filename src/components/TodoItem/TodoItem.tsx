@@ -2,6 +2,7 @@ import React from "react";
 import { Todo } from "../../types";
 import { StyledListItem, StyledButton } from "./Styled.TodoItem";
 import { AiOutlineDelete } from "react-icons/ai";
+import Checkbox from "../Checkbox/Checkbox";
 
 type TodoItemProp = Todo & {
   style?: React.CSSProperties;
@@ -19,12 +20,12 @@ const TodoItem = ({
 }: TodoItemProp) => {
   return (
     <StyledListItem>
-      <input
-        type="checkbox"
-        checked={completed}
-        onChange={() => handleComplete(id)}
+      <Checkbox
+        completed={completed}
+        handleComplete={handleComplete}
+        id={id}
+        title={title}
       />
-      <span>{title}</span>
       <StyledButton style={{}} onClick={() => handleDelete(id)}>
         <AiOutlineDelete />
       </StyledButton>

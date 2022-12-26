@@ -1,6 +1,6 @@
-import React from "react";
-import { Todo } from "../types";
-import TodoItem from "./TodoItem";
+import { Todo } from "../../types";
+import TodoItem from "../TodoItem/TodoItem";
+import { StyledTodoList } from "./Styled.TodoList";
 
 type TodoListProps = {
   list: Todo[];
@@ -10,7 +10,7 @@ type TodoListProps = {
 
 function TodoList({ list, handleComplete, handleDelete }: TodoListProps) {
   return (
-    <ul>
+    <StyledTodoList>
       {list &&
         list.map((todo) => (
           <TodoItem
@@ -22,7 +22,7 @@ function TodoList({ list, handleComplete, handleDelete }: TodoListProps) {
             handleComplete={handleComplete}
           />
         ))}
-    </ul>
+    </StyledTodoList>
   );
 }
 

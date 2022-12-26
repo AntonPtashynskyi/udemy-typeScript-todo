@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledInputForm } from "./Styled.TodoForm";
 
 type NewTodoProps = {
   value: string;
@@ -10,7 +11,7 @@ type NewTodoProps = {
 
 const NewTodoForm = ({ value, onChange, handleClick }: NewTodoProps) => {
   return (
-    <>
+    <StyledInputForm>
       <input
         type="text"
         placeholder="new todo"
@@ -18,7 +19,7 @@ const NewTodoForm = ({ value, onChange, handleClick }: NewTodoProps) => {
         onChange={onChange}
       />
       <button onClick={handleClick}>Add todo</button>
-    </>
+    </StyledInputForm>
   );
 };
 

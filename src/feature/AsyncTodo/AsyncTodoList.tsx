@@ -1,12 +1,12 @@
-import TodoItem from "../TodoItem/TodoItem";
-import { StyledTodoList } from "./Styled.TodoList";
+import { useEffect } from "react";
 import { Todo } from "types";
 import { useAppDispatch, useAppSelector } from "redux-hook";
-import { selectAllTodos } from "feature/Todo/TodoSelector";
-import { deleteTodo, toggleTodo } from "feature/AsyncTodo/todoAsyncAction";
+import { asyncSelectAllTodos } from "./asyncTodoSelector";
+import TodoItem from "components/TodoItem/TodoItem";
+import { deleteTodo, fetchAllTodos, toggleTodo } from "./todoAsyncAction";
 
-function TodoList() {
-  const list = useAppSelector(selectAllTodos);
+function AsyncTodoList() {
+  const { list } = useAppSelector(asyncSelectAllTodos);
   const dispatch = useAppDispatch();
 
   const handleDelete = (id: Todo["id"]) => {
@@ -17,8 +17,12 @@ function TodoList() {
     dispatch(toggleTodo(id));
   };
 
+  useEffect(() => {
+    dispatch(fetchAllTodos());
+  }, []);
+
   return (
-    <StyledTodoList>
+    <ul>
       {list &&
         list.map((todo) => (
           <TodoItem
@@ -30,8 +34,8 @@ function TodoList() {
             handleComplete={handleComplete}
           />
         ))}
-    </StyledTodoList>
+    </ul>
   );
 }
 
-export default TodoList;
+export default AsyncTodoList;

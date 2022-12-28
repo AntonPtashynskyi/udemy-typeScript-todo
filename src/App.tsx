@@ -12,6 +12,8 @@ import {
 } from "./components/TodoForm/StyledTodoWrapper";
 import { NewTodo } from "feature/Todo/NewTodo";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
+import { NewAsyncTodo } from "feature/AsyncTodo/NewAsyncTodo";
+import AsyncTodoList from "feature/AsyncTodo/AsyncTodoList";
 
 const theme = {
   dark: DarkTheme,
@@ -38,9 +40,9 @@ function App() {
               <FcPlus size={"2.5em"} />
             )}
           </StyledModalButton>
-          <NewTodo />
+          <NewAsyncTodo />
         </StyledTodoWrapper>
-        <TodoList />
+        <AsyncTodoList />
       </StyledContainer>
     </ThemeProvider>
   );

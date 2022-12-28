@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { BsCheckLg } from "react-icons/bs";
 
 type CheckboxProps = {
-  handleComplete: (id: string) => void;
+  handleComplete: (id: number | undefined) => void;
   completed: boolean;
-  id: string;
+  id: number | undefined;
   title: string;
 };
 const StyledCheckbox = styled.label`

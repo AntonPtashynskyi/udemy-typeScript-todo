@@ -6,14 +6,14 @@ import Checkbox from "../Checkbox/Checkbox";
 
 type TodoItemProp = Todo & {
   style?: React.CSSProperties;
-  handleComplete: (id: string) => void;
-  handleDelete: (id: string) => void;
+  handleComplete: (id: number | undefined) => void;
+  handleDelete: (id: number | undefined) => void;
 };
 
 const TodoItem = ({
-  id,
   title,
   completed,
+  id,
   handleDelete,
   handleComplete,
   style = {},

@@ -1,8 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import todoReducer from "./feature/Todo/todoSlice";
+import asyncTodoReducer from "./feature/AsyncTodo/asyncTodoSlice";
 
 const rootReducer = combineReducers({
   todos: todoReducer,
+  asyncTodos: asyncTodoReducer,
 });
 
 export const store = configureStore({

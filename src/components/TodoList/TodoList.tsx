@@ -1,14 +1,22 @@
-import { Todo } from "../../types";
 import TodoItem from "../TodoItem/TodoItem";
 import { StyledTodoList } from "./Styled.TodoList";
+import { Todo } from "types";
+import { useAppDispatch, useAppSelector } from "redux-hook";
+import { removeTodo, toggleTodo } from "feature/Todo/todoSlice";
+import { selectAllTodos } from "feature/Todo/TodoSelector";
 
-type TodoListProps = {
-  list: Todo[];
-  handleComplete: (id: string) => void;
-  handleDelete: (id: string) => void;
-};
+function TodoList() {
+  const list = useAppSelector(selectAllTodos);
+  const dispatch = useAppDispatch();
 
-function TodoList({ list, handleComplete, handleDelete }: TodoListProps) {
+  const handleDelete = (id: Todo["id"]) => {
+    dispatch(removeTodo(id));
+  };
+
+  const handleComplete = (id: Todo["id"]) => {
+    dispatch(toggleTodo(id));
+  };
+
   return (
     <StyledTodoList>
       {list &&

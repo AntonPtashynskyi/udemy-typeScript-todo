@@ -3,7 +3,7 @@ import { Todo } from "types";
 
 const initialTodoState: Todo[] = [];
 const todoSlice = createSlice({
-  name: "todo",
+  name: "todos",
   initialState: initialTodoState,
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
@@ -19,7 +19,7 @@ const todoSlice = createSlice({
     },
     toggleTodo: (state, action: PayloadAction<Todo["id"]>) => {
       return state.map((todo) => {
-        if (todo.id === action.payload) return todo;
+        if (todo.id !== action.payload) return todo;
 
         return {
           ...todo,
